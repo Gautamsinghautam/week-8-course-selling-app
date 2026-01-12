@@ -3,17 +3,17 @@ const { Router}=require("express");
 const userRouter=Router();
 
 
-app.post("/signup",function(req,res){
+userRouter.post("/signup",function(req,res){
 
     res.json({message: "signup endpoint"})
 })
 
-app.post("/signin",function(req,res){
+userRouter.post("/signin",function(req,res){
 
     res.json({message: "Signin endpoint"})
 })
 
-app.get("/purchange",function(req,res){
+userRouter.get("/purchange",function(req,res){
 
     res.json({message: "see purchansed endpoint"})
 })
