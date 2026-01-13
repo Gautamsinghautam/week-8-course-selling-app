@@ -1,6 +1,6 @@
 const {Schema, default: mongoose}=require("mongoose");
 console.log("Mongoose called to called");
-mongoose.connect("mongodb+srv://gautamsingh6006218_db_user:Singhautam1@cluster0.tqjgxxd.mongodb.net/coursera-app");
+// await mongoose.connect("mongodb+srv://gautamsingh6006218_db_user:Singhautam1@cluster0.tqjgxxd.mongodb.net/coursera-app");
 const ObjectId=mongoose.Types.ObjectId;
 
 
