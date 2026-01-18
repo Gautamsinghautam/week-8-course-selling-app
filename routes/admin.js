@@ -3,8 +3,9 @@ const adminRouter=Router();
 const {adminModel}=require("../db");
 
 // adminRouter.use(adminMiddleware);
-
+//passsowrd hashing libraray Bcrypt ZOD(for ipn validation), json token for token generatioon
 adminRouter.post("/signup",function(req,res){
+    
 
     res.json({message: "signup endpoint"});
 })
