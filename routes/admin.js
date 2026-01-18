@@ -1,8 +1,10 @@
 const {Router}=require("express");
 const adminRouter=Router();
 const jwt=require("jsonwebtoken");
-const {adminModel}=require("../db");
-const JWT_ADMIN_PASSWORD="GautamAdimin";
+const {adminModel, courseModel}=require("../db");
+const {JWT_ADMIN_PASSWORD}=require("../config");
+const { adminMiddleware } = require("../middleware/admin");
+// const JWT_ADMIN_PASSWORD="GautamAdimin";
 
 // adminRouter.use(adminMiddleware);
 //passsowrd hashing libraray Bcrypt ZOD(for ipn validation), json token for token generatioon
@@ -42,9 +44,15 @@ adminRouter.post("/signin",async function(req,res){
     }
 
 })
-adminRouter.post("/course",function(req,res){
+adminRouter.post("/course",adminMiddleware,async function(req,res){
+    const adminId=req.adminId;
+    const { title, description, imageUrl, price }=req.body;
+   const course= await courseModel.create({
+        title,description,imageUrl,price,creatorId: adminId
+    })
 
-    res.json({message: "course post endpoint "});
+    res.json({message: "course post endpoint course created ", courseId: course._id});
+
 })
 adminRouter.put("/course",function(req,res){
 

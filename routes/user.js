@@ -3,7 +3,8 @@ const { Router}=require("express");
 const userRouter=Router();
 const {userModel}=require("../db");
 const jwt=require("jsonwebtoken");
-const JWT_USER_PASSWORD="gautam12345"; //todo : put in env variable
+const {JWT_USER_PASSWORD}=require("../config");
+// const JWT_USER_PASSWORD="gautam12345"; //todo : put in env variable
 
 userRouter.post("/signup",async function(req,res){
     const {email, password, firstname, lastName} = req.body; //todo: adding zod validation
