@@ -1,3 +1,5 @@
+require("dotenv").config();
+console.log("MONGO URL IS ",process.env.MONGO_URL);
 const express=require("express");
 const mongoose=require("mongoose");
 
@@ -17,8 +19,8 @@ app.use("/api/v1/course",courseRouter);
 
 async function main() {
     //use dot env to store this url
-    await mongoose.connect("mongodb+srv://gautamsingh6006218_db_user:Singhautam1@cluster0.tqjgxxd.mongodb.net/coursera-app");
-    app.listen(3000);
-    console.log("listening to port 3000");
+    await mongoose.connect(process.env.MONGO_URL);
+    app.listen(port);
+    console.log(`listening to port ${port}`);
 }
 main();
